@@ -4,12 +4,12 @@
   "description": "NodeJS BatlleShip",
   "main": "app.js",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "express": "^4.15.2",
+    "mongoose": "^4.12.0",
     "mysql": "^2.15.0",
-    "promise": "^8.0.1",
-    "body-parser": "^1.18.2",
-    "mongoose": "^4.12.0"
+    "promise": "^8.0.1"
   },
   "devDependencies": {
     "ws": "3.3.2",
@@ -17,19 +17,19 @@
     "tape": "^4.7.0"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "node app.js",
     "test": "node test.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://Wasitpon-S@bitbucket.org/wasitpons/back-organent.git"
+    "url": "git+https://github.com/wasitpons/battleship.git"
   },
   "keywords": [
-    "booth",
+    "battleship",
     "heroku",
-    "organizer"
+    "wasitpons"
   ],
-  "author": "wasitpon sinthuphon,jirapat watcharasing",
+  "author": "wasitpon sinthuphon",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/wasitpons/back-organent#readme"
+  "homepage": "https://github.com/wasitpons/battleship#readme"
 }

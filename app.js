@@ -1,10 +1,10 @@
 const express = require('express');
 var app = express();
-const bodyparser = require('body-parser');
+const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const connection = require('./connection.js');
-const defaultRouter = require('./routes/defaultRouter.js');
+var defaultRouter = require('./routes/defaultRouter.js');
 const PORT = process.env.PORT || 5000
 
 connection.connect();
