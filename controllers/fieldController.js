@@ -5,6 +5,6 @@ var Field = mongoose.model('Field');
 exports.getFieldAll = function()
 {
     let field = new Field()
-    let filter = {};
+    let filter = {'status':'defender'};
     return field.getFieldAll(filter);;
 }

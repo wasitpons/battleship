@@ -2,7 +2,7 @@ const schema = {
     datetime: Date,
     field: [{
         index: Number,
-        data: Number
+        data: [Number]
     }],
     ship: {
         battleShip: Number,

@@ -1,7 +1,9 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var templateFieldSchema = require('../schema/fieldSchema.js'); 
-var fieldSchema = new Schema(templateFieldSchema);
+var fieldSchema = new Schema(templateFieldSchema,{
+    collection: 'field'
+});
 
 fieldSchema.methods.getFieldAll = async function(filter)
 { 
