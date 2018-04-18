@@ -77,4 +77,10 @@ playerSchema.methods.clearPlayer = async function(query){
     return filter;
 }
 
+playerSchema.methods.updateAction = async function(action,playerID){
+    return await this.model('Player').update({"_id":playerID},{'action': action});
+}
+playerSchema.methods.updateLog = async function(log,playerID){
+    return await this.model('Player').update({"_id":playerID},{'log': log});
+}
 module.exports = mongoose.model('Player', playerSchema);

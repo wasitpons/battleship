@@ -48,21 +48,19 @@ router.get('/howtoplay', (req,res) => {
     res.redirect('https://docs.google.com/document/d/1V4hs8vSNFOhKSkSup0DVGdmKUnW4tTAYsIVsGyvIppU/edit');
 });
 
-router.post('/defend', async (req,res) => {
+router.post('/defense', async (req,res) => {
     let playerID = req.body._id;
     let selected = req.body.selected;
-
-    res.send(await gameController.defend(playerID,selected));
+    
+    res.send(await gameController.defense(playerID,selected));
 });
 
-/*
 router.post('/attack', async (req,res) => {
     let playerID = req.body._id;
     let selected = req.body.selected;
 
     res.send(await gameController.attack(playerID,selected));
 });
-*/
 
 router.post('/cleardata',async (req,res) => {
     let fieldQuery = req.body.field;

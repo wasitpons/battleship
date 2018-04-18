@@ -7,9 +7,14 @@ const schema = {
         move: Number
     },
     usingTime: Number,
-    log: [{miss: Number,
-        hit: Number,
-        move: Number}],
+    log: [{
+        selected: String,
+        action: {
+            miss: Number,
+            hit: Number,
+            move: Number
+        },
+        msg: String}],
     isWin: Boolean
   }
   

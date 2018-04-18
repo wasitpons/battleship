@@ -65,15 +65,12 @@ fieldSchema.methods.clearField = async function(query){
 }
 
 fieldSchema.methods.updateField = async function(arrField,fieldID){
-    console.log(arrField);
-    console.log(fieldID);
-    let res = await this.model('Field').update({"_id":fieldID},{'field': arrField});
-    console.log(res);
-    return res;
+    
+    return await this.model('Field').update({"_id":fieldID},{'field': arrField});
 }
 
 fieldSchema.methods.updateShip = async function(ship,fieldID){
-    return await this.model('Field').updateMany({"_id":fieldID},{'ship': ship});
+    return await this.model('Field').update({"_id":fieldID},{'ship': ship});
 }
 
 module.exports = mongoose.model('Field', fieldSchema);

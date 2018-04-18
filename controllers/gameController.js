@@ -33,36 +33,35 @@ exports.cleardata = async function(fieldQuery,playerQuery) {
     return res;
 }
 
-exports.defend = async function(playerID,selected){
+exports.defense = async function(playerID,selected){
     
     let player = await playerController.getPlayer({"_id":playerID});
-    
+    if(!player.success)  {   return player;  }
     let field = await fieldController.getField({"_id":player.data[0].fieldID});
+    if(!field.success)  {   return field;   }
     let arrField = field.data[0].field
     let ship = {};
     ship = field.data[0].ship
+    console.log(player.data[0].playerID);
     if(selected.length != 2 || !isNumber(selected,arrField.length) )    {
         return ({"success":false,"msg":"can't build a ship from your selected","data":[]});
     }
 
-    return await fieldController.defend(arrField,player.data[0].fieldID,selected);
+    return await fieldController.defense(arrField,player.data[0].fieldID,selected);
 }
-/*
-exports.attack = async function(){
+
+exports.attack = async function(playerID,selected){
     let player = await playerController.getPlayer({"_id":playerID});
     
     let field = await fieldController.getField({"_id":player.data[0].fieldID});
     let arrField = field.data[0].field
-    let ship = {};
-    ship = field.data[0].ship
     if(selected.length != 2 || !isNumber(selected,arrField.length) )    {
         return ({"success":false,"msg":"can't build a ship from your selected","data":[]});
     }
 
-    return await fieldController.attack(arrField,player.data[0].fieldID,selected,ship);
+    return await fieldController.attack(arrField,player.data[0].fieldID,playerID,selected,player.data[0].action,player.data[0].log);
 
 }
-*/
 function isNumber(selected,length){
 
     for(let i of selected.split('')){

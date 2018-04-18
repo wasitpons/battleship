@@ -15,6 +15,7 @@ exports.getPlayer = function(filter) {
 exports.createPlayer = function (fieldID,playerName) {
     let usingTime = 0;
     let log = [];
+    log.push({'selected':0,'action':0,'msg':'new game'});
     let action = {};
     action.miss = 0;
     action.hit = 0;
@@ -39,4 +40,12 @@ exports.ranking = function(limit) {
 
 exports.clearPlayer = function(query){
     return player.clearPlayer(query);
+}
+
+exports.updateAction = function(action,playerID){
+    return player.updateAction(action,playerID);
+}
+
+exports.updateLog = function(log,playerID){
+    return player.updateLog(log,playerID);
 }
