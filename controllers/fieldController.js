@@ -50,7 +50,7 @@ exports.clearField = function(data){
 }
 
 exports.defense = async function(arrField,fieldID,selected){
-    console.log(fieldID);
+    
     let shipType = ['ShipType','subMarines','destroyer','cruisers','battleship'];
     let shipName = "subMarines";
     let ship = await calShip(arrField,"defense");
