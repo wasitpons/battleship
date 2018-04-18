@@ -3,16 +3,16 @@ const mongoose = require('mongoose');
 const Player = mongoose.model('Player');
 const player = new Player();
 
-exports.getPlayerAll = () => {
+exports.getPlayerAll = function() {
     let filter = {};
     return player.getPlayer(filter);
 }
 
-exports.getPlayer = (filter) => {
+exports.getPlayer = function(filter) {
     return player.getPlayer(filter);
 }
 
-exports.createPlayer = (fieldID,playerName) => {
+exports.createPlayer = function (fieldID,playerName) {
     let usingTime = 0;
     let log = [];
     let action = {};
@@ -33,6 +33,10 @@ exports.createPlayer = (fieldID,playerName) => {
 
 }
 
-exports.ranking = (limit) => {
+exports.ranking = function(limit) {
     return player.ranking(limit);
+}
+
+exports.clearPlayer = function(query){
+    return player.clearPlayer(query);
 }

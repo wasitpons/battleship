@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 });
 
 /*  ==========  BEGIN OF FIELDS CONTROLLER ==========*/
-router.get('/getfieldall', async (req,res) => {
+router.post('/getfieldall', async (req,res) => {
     res.send(await fieldController.getFieldAll());
 });
 
@@ -22,7 +22,7 @@ router.post('/getfield', async (req,res) => {
 /*  ==========  END OF FIELDS CONTROLLER ==========*/
 
 /*  ==========  BEGIN OF PLAYER CONTROLLER ==========*/
-router.get('/getplayerall', async (req,res) => {
+router.post('/getplayerall', async (req,res) => {
     res.send(await playerController.getPlayerAll());
 });
 
@@ -42,10 +42,32 @@ router.post('/creategame', async (req,res) => {
 router.post('/ranking', async (req,res) => {
     let limit = req.body.limit;
     res.send(await gameController.ranking(limit));
-})
+});
 
 router.get('/howtoplay', (req,res) => {
     res.redirect('https://docs.google.com/document/d/1V4hs8vSNFOhKSkSup0DVGdmKUnW4tTAYsIVsGyvIppU/edit');
 });
+
+router.post('/defend', async (req,res) => {
+    let playerID = req.body._id;
+    let selected = req.body.selected;
+
+    res.send(await gameController.defend(playerID,selected));
+});
+
+/*
+router.post('/attack', async (req,res) => {
+    let playerID = req.body._id;
+    let selected = req.body.selected;
+
+    res.send(await gameController.attack(playerID,selected));
+});
+*/
+
+router.post('/cleardata',async (req,res) => {
+    let fieldQuery = req.body.field;
+    let playerQuery = req.body.player;
+    res.send(await gameController.cleardata(fieldQuery,playerQuery));
+}); 
 /*  ==========  END OF GAME CONTROLLER ==========*/
 module.exports = router;

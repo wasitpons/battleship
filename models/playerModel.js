@@ -57,4 +57,24 @@ playerSchema.methods.ranking = async function(limit){
     return data;
 }
 
+playerSchema.methods.clearPlayer = async function(query){
+    let res = await this.model('Player').deleteMany(query);
+    let filter = {};
+    let msg = "Deleted !";
+    let success = true;
+    let data = {};
+    data.nDeleted = res.result.n;
+    data.ok = res.result.ok;
+    
+    if(data.ok != 1)    {   
+        msg = "Error, Can't delete data from player. Please check your query"; 
+        success = false;
+    }
+    filter.success = success;
+    filter.msg = msg;
+    filter.data = data;
+
+    return filter;
+}
+
 module.exports = mongoose.model('Player', playerSchema);

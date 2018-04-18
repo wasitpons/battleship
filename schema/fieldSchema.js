@@ -1,6 +1,6 @@
 const schema = {
     datetime: Date,
-    field: [[Number]],
+    field: [[String]],
     ship: {
         battleShip: Number,
         cruisers: Number,
