@@ -21,5 +21,9 @@ Each player deploys his ships (of lengths varying from 1 to 4 squares) secretly 
 
 1. Create game `/creategame` with playerName `{ playerName : <playerName> }`
 2. Deploy your battleship ! `/defense` 
+  2.1  If you deploy a ship duplicated area, the ship in area will be removed.
 3. Destroy the ship ! `/attack`
+  3.1  "Miss" when the attacker misses.
+  3.2  "Hit" when a ship has been hit but not sunk.
+  3.3  "You just sank the x" when a ship is sunk. 
 4. Winner will see this message `Win! You completed the game in X moves`
